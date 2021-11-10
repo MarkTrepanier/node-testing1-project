@@ -7,8 +7,8 @@
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
 function trimProperties(obj) {
-  const newObj = obj;
-  for (const property in newObj) {
+  const newObj = {};
+  for (const property in obj) {
     newObj[property] = property.trim();
   }
   return newObj;
