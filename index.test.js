@@ -48,8 +48,18 @@ describe("[Exercise 4] Counter", () => {
   beforeEach(() => {
     counter = new utils.Counter(3); // each test must start with a fresh couter
   });
-  // test('[6] the FIRST CALL of counter.countDown returns the initial count', () => {})
-  // test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {})
+  test("[6] the FIRST CALL of counter.countDown returns the initial count", () => {
+    let count = 3;
+    const expected = 3;
+    const actual = counter.countDown();
+    expect(actual).toEqual(expected);
+  });
+  test("[7] the SECOND CALL of counter.countDown returns the initial count minus one", () => {
+    const expected = 2;
+    let actual = counter.countDown();
+    actual = counter.countDown();
+    expect(actual).toEqual(expected);
+  });
   // test('[8] the count eventually reaches zero but does not go below zero', () => {})
 });
 
