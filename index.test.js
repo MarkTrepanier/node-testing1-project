@@ -60,7 +60,16 @@ describe("[Exercise 4] Counter", () => {
     actual = counter.countDown();
     expect(actual).toEqual(expected);
   });
-  // test('[8] the count eventually reaches zero but does not go below zero', () => {})
+  test("[8] the count eventually reaches zero but does not go below zero", () => {
+    const expected = 0;
+    let actual = counter.countDown();
+    actual = counter.countDown();
+    actual = counter.countDown();
+    actual = counter.countDown();
+    expect(actual).toEqual(expected);
+    actual = counter.countDown();
+    expect(actual).toEqual(expected);
+  });
 });
 
 describe("[Exercise 5] Seasons", () => {
@@ -68,12 +77,49 @@ describe("[Exercise 5] Seasons", () => {
   beforeEach(() => {
     seasons = new utils.Seasons(); // each test must start with fresh seasons
   });
-  // test('[9] the FIRST call of seasons.next returns "summer"', () => {})
-  // test('[10] the SECOND call of seasons.next returns "fall"', () => {})
-  // test('[11] the THIRD call of seasons.next returns "winter"', () => {})
-  // test('[12] the FOURTH call of seasons.next returns "spring"', () => {})
-  // test('[13] the FIFTH call of seasons.next returns again "summer"', () => {})
-  // test('[14] the 40th call of seasons.next returns "spring"', () => {})
+  test('[9] the FIRST call of seasons.next returns "summer"', () => {
+    const expected = "summer";
+    let nextSeason = seasons.next();
+    expect(nextSeason).toBe(expected);
+  });
+  test('[10] the SECOND call of seasons.next returns "fall"', () => {
+    const expected = "fall";
+    let nextSeason = seasons.next();
+    nextSeason = seasons.next();
+    expect(nextSeason).toBe(expected);
+  });
+  test('[11] the THIRD call of seasons.next returns "winter"', () => {
+    const expected = "winter";
+    let nextSeason = "";
+    for (let i = 0; i < 3; i++) {
+      nextSeason = seasons.next();
+    }
+    expect(nextSeason).toBe(expected);
+  });
+  test('[12] the FOURTH call of seasons.next returns "spring"', () => {
+    const expected = "spring";
+    let nextSeason = "";
+    for (let i = 0; i < 4; i++) {
+      nextSeason = seasons.next();
+    }
+    expect(nextSeason).toBe(expected);
+  });
+  test('[13] the FIFTH call of seasons.next returns again "summer"', () => {
+    const expected = "summer";
+    let nextSeason = "";
+    for (let i = 0; i < 5; i++) {
+      nextSeason = seasons.next();
+    }
+    expect(nextSeason).toBe(expected);
+  });
+  test('[14] the 40th call of seasons.next returns "spring"', () => {
+    const expected = "spring";
+    let nextSeason = "";
+    for (let i = 0; i < 40; i++) {
+      nextSeason = seasons.next();
+    }
+    expect(nextSeason).toBe(expected);
+  });
 });
 
 describe("[Exercise 6] Car", () => {

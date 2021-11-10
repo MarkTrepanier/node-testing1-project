@@ -69,8 +69,6 @@ class Counter {
   countDown() {
     const count = this.initialNumber;
     if (this.initialNumber >= 1) this.initialNumber--;
-
-    console.log(count);
     return count;
   }
 }
@@ -80,7 +78,9 @@ class Seasons {
    * [Exercise 5A] Seasons creates a seasons object
    */
   constructor() {
-    // ✨ initialize whatever properties are needed
+    this.seasons = ["spring", "summer", "fall", "winter"];
+    this.index = 0;
+    this.currentSeason = this.seasons[this.index];
   }
 
   /**
@@ -96,7 +96,9 @@ class Seasons {
    * seasons.next() // returns "summer"
    */
   next() {
-    // ✨ implement
+    this.index < 3 ? this.index++ : this.index = 0;
+    this.currentSeason = this.seasons[this.index];
+    return this.currentSeason;
   }
 }
 
