@@ -127,10 +127,33 @@ describe("[Exercise 6] Car", () => {
   beforeEach(() => {
     focus = new utils.Car("focus", 20, 30); // each test must start with a fresh car
   });
-  // test('[15] driving the car returns the updated odometer', () => {})
-  // test('[16] driving the car uses gas', () => {})
-  // test('[17] refueling allows to keep driving', () => {})
-  // test('[18] adding fuel to a full tank has no effect', () => {})
+  test("[15] driving the car returns the updated odometer", () => {
+    const expected = 15;
+    const actual = focus.drive(15);
+    expect(actual).toEqual(expected);
+  });
+  test("[16] driving the car uses gas", () => {
+    const expected = 19;
+    focus.drive(30);
+    const gasLeft = focus.tank;
+    expect(gasLeft).toEqual(expected);
+  });
+  test("[17] refueling allows to keep driving", () => {
+    const expected = 600;
+    const driveOne = focus.drive(600);
+    expect(driveOne).toEqual(expected);
+    const driveTwo = focus.drive(5);
+    expect(driveTwo).toEqual(expected);
+    focus.refuel(10);
+    const drivethree = focus.drive(10);
+    expect(drivethree).toBeGreaterThan(expected);
+  });
+  test("[18] adding fuel to a full tank has no effect", () => {
+    const expected = 20;
+    focus.refuel(30);
+    const gasLeft = focus.tank;
+    expect(gasLeft).toEqual(expected);
+  });
 });
 
 describe("[Exercise 7] isEvenNumberAsync", () => {
