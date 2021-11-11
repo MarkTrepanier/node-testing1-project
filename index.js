@@ -173,8 +173,9 @@ class Car {
  *    // result is false
  * })
  */
-function isEvenNumberAsync(number) {
-  // ✨ implement
+async function isEvenNumberAsync(number) {
+  const truthiness = number % 2 === 0;
+  return truthiness;
 }
 
 module.exports = {
